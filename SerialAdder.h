@@ -1,7 +1,7 @@
 
 #include <iostream>
 using namespace std ;
-int adder(int a,int b){
+int adder(int& a,int& b){
     //串行進位全加法器
     int an=0;
     int cin=0;
