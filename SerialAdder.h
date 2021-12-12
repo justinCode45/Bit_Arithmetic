@@ -1,4 +1,4 @@
-int adder(int &a,int& b){
+int adder(int a,int b){
     //串行進位全加法器
     int ans=0;
     int cin=0;
