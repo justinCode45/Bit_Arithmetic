@@ -86,16 +86,10 @@ int multiplier( int m,int r){
 //除法器
 //a/b
 int division(int a,int b){
-    int q_singed ;
-    int ans=0;
-    if((a>0&&b>0)||(a<0&&b<0)){
-        q_singed=0;
-    }else{
-        q_singed=1;
-    }
+    int q_singed =(a>0&&b>0)||(a<0&&b<0)? 0:1;
     a= a>0? a :adder((~a),1);
     b= b>0? b :adder((~b),1);
-
+    int ans=0;
     while(a>0){
         a=subtractor(a,b);
         if(a<0){
