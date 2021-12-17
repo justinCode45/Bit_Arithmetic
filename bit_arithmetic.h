@@ -1,4 +1,4 @@
-//自製位元四則運算V3
+//自製位元四則運算V4
 //-------------
 //作者:陳柏瑄
 //-------------
@@ -8,6 +8,7 @@ using namespace std;
 int adder(int a, int b);
 int subtractor (int a,int b);
 int multiplier( int a,int b);
+int division(int a,int b);
 void show_binary( int dec ,int bit);
 
 
@@ -80,6 +81,41 @@ int multiplier( int m,int r){
     }
     return ans[1];
 }
+
+
+//除法器
+//a/b
+int division(int a,int b){
+    int q_singed ;
+    int ans=0;
+    if((a>0&&b>0)||(a<0&&b<0)){
+        q_singed=0;
+    }else{
+        q_singed=1;
+    }
+    a= a>0? a :adder((~a),1);
+    b= b>0? b :adder((~b),1);
+
+    while(a>0){
+        a=subtractor(a,b);
+        if(a<0){
+            break;
+        }
+        ans=adder(ans,1);
+    }
+    if(q_singed){
+        ans=adder((~ans),1);
+    }
+    return ans;
+}
+//模除
+//a%b
+int modulo(int a,int b){
+    int n=division(a,b);
+    int r= subtractor(a,multiplier(b,n));
+    return r;
+}
+
 
 //二進為顯示器 
 //dec:目標數字
